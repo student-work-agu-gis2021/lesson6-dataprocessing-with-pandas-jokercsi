@@ -82,7 +82,7 @@ print('Date of the first observation:',first_obs)
 last_obs = None
 
 # YOUR CODE HERE 6
-first_obs =  data.at[-1, "DATE"]
+last_obs =  data["DATE"].iloc[-1]
 #CAUTION!!! DON'T EDIT THIS PART START
 # Print out the solution:
 print('Date of the last observation:', last_obs)
@@ -95,7 +95,7 @@ print('Date of the last observation:', last_obs)
 avg_temp = None
 
 # YOUR CODE HERE 7
-
+avg_temp = data["TAVG"].mean()
 #CAUTION!!! DON'T EDIT THIS PART START
 # Print out the solution:
 print('Average temperature (F) for the whole dataset:', round(avg_temp, 2))
@@ -108,7 +108,7 @@ print('Average temperature (F) for the whole dataset:', round(avg_temp, 2))
 avg_temp_1969 = None
 
 # YOUR CODE HERE 8
-
+avg_temp_1969 = data.loc[6057:6179, "TMAX"].mean()
 #CAUTION!!! DON'T EDIT THIS PART START
 # This test print should print a number
 print('Average temperature (F) for the Summer of 69:', round(avg_temp_1969, 2))
