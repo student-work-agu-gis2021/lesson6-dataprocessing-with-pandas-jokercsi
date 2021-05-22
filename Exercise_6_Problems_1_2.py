@@ -18,7 +18,7 @@ data = None
 
 # YOUR CODE HERE 1
 fp = "./data/1091402.txt"
-data = pd.read_csv(fp, skiprows=2 )
+data = pd.read_csv(fp, skiprows=[1],delim_whitespace=True, na_values=[-9999])
 # ### Part 2 
 # 
 # In this section, you will calculate simple statistics based on the input data:
@@ -28,6 +28,7 @@ data = pd.read_csv(fp, skiprows=2 )
 
 tavg_nodata_count = None
 #YOUR CODE HERE 2
+tavg_nodata_count = data["TAVG"].isna().sum()
 
 
 #CAUTION!!! DON'T EDIT THIS PART START
@@ -41,6 +42,7 @@ print('Number of no-data values in column "TAVG":',tavg_nodata_count)
 
 tmin_nodata_count = None
 #YOUR CODE HERE 3
+tmin_nodata_count = data["TMIN"].isna().sum()
 
 #CAUTION!!! DON'T EDIT THIS PART START
 # Print out the solution:
@@ -53,7 +55,9 @@ print('Number of no-data values in column "TMIN":', tmin_nodata_count)
 
 day_count = None 
 #YOUR CODE HERE 4
-
+day_count = data["DATE"].sum()
+sameDay = data["DATE"].unique().sum()
+print(day_count - sameDay)
 #CAUTION!!! DON'T EDIT THIS PART START
 # Print out the solution:
 print("Number of days:", day_count)
@@ -66,7 +70,7 @@ print("Number of days:", day_count)
 first_obs = None
  
 # YOUR CODE HERE 5
-
+first_obs =  data.at[0, "DATE"]
 #CAUTION!!! DON'T EDIT THIS PART START
 # Print out the solution:
 print('Date of the first observation:',first_obs)
@@ -78,7 +82,7 @@ print('Date of the first observation:',first_obs)
 last_obs = None
 
 # YOUR CODE HERE 6
-
+first_obs =  data.at[-1, "DATE"]
 #CAUTION!!! DON'T EDIT THIS PART START
 # Print out the solution:
 print('Date of the last observation:', last_obs)
