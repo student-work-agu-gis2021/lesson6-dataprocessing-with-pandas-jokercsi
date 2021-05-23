@@ -121,6 +121,10 @@ print('Average temperature (F) for the Summer of 69:', round(avg_temp_1969, 2))
 monthly_data = None
 
 # YOUR CODE HERE 9
+monthly_data = pd.DataFrame(columns = ['temp_fahreheit'])
+monthly_data['temp_fahreheit'] = data['TAVG']
+monthly_data['temp_celsius'] = (data['TAVG'] - 32) / 1.8
+print(monthly_data)
 
 #CAUTION!!! DON'T EDIT THIS PART START
 # This test print should print the length of variable monthly_data
